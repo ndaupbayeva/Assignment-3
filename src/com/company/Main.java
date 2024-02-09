@@ -8,6 +8,6 @@ import java.sql.Connection;
 public class Main {
     public static void main(String[] args) {
         IDB db = new PostgresDB();
-        Connection conn = db.getConnection("delieveryservicedb", "postgres", "0000");
+        Connection conn = db.getConnection();
     }
 }
