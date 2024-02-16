@@ -2,6 +2,7 @@ package com.company.repositories;
 
 import com.company.data.interfaces.IDB;
 import com.company.models.Employee;
+import com.company.models.Orders;
 import com.company.models.User;
 import com.company.repositories.interfaces.IUserRepository;
 
@@ -15,6 +16,7 @@ public class UserRepository implements IUserRepository {
     public UserRepository(IDB db) {
         this.db = db;
     }
+
 
     @Override
     public boolean createUser(User user) {
@@ -173,6 +175,8 @@ public class UserRepository implements IUserRepository {
 
         return null;
     }
+
+
 
     @Override
     public List<Employee> getAllEmployees() {

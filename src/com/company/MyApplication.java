@@ -32,7 +32,6 @@ public class MyApplication {
                     System.out.println("1. Add Employee");
                     System.out.println("2. Delete Employee");
                     System.out.println("3. Get all Employees");
-                    System.out.println("3. Update Employee");
                     try {
                         System.out.print("Enter option (1-3): ");
                         int option2 = scanner.nextInt();
@@ -45,11 +44,6 @@ public class MyApplication {
                         if (option2== 3){
                             getAllEmployeesMenu();
                         }
-                        if (option2== 4){
-                            //Function For Listing Employees
-                            System.out.println("Employee Updated");
-                        }
-
                     }catch(InputMismatchException e) {
                         System.out.println("Input must be integer: " + e);
                         scanner.nextLine();
@@ -59,7 +53,7 @@ public class MyApplication {
                     System.out.println("1. Add Dish");
                     System.out.println("2. Delete Dish");
                     System.out.println("3. Get all Dishes");
-                    System.out.println("4. Update Dish");
+                    System.out.println("4. Update Dish's cost");
 
                     try {
                         System.out.print("Enter option (1-3): ");

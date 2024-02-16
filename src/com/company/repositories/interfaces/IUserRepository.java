@@ -1,6 +1,7 @@
 package com.company.repositories.interfaces;
 
 import com.company.models.Employee;
+import com.company.models.Orders;
 import com.company.models.User;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface IUserRepository {
     List<User> getAllUsers();
     List<Employee> getAllEmployees();
     Employee deleteEmployee(int id);
+
 }

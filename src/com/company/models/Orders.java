@@ -28,7 +28,7 @@ public class Orders {
         this.name = name;
     }
 
-    public boolean isFinished() {
+    public boolean getFinished() {
         return finished;
     }
 
