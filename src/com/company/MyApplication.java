@@ -40,12 +40,10 @@ public class MyApplication {
                             addEmployeeMenu();
                         }
                         if (option2 == 2){
-                            //Function For Deleting Employee
-                            System.out.println("Employee deleted");
+                            deleteEmployeeMenu();
                         }
                         if (option2== 3){
-                            //Function For Adding Employee
-                            System.out.println("List of Employees");
+                            getAllEmployeesMenu();
                         }
                         if (option2== 4){
                             //Function For Listing Employees
@@ -131,6 +129,11 @@ public class MyApplication {
         System.out.println(response);
     }
 
+    public void getAllEmployeesMenu(){
+        String response = controller.getAllEmployees();
+        System.out.println(response);
+    }
+
     public void getUserByIdMenu() {
         System.out.println("Please enter id");
 
@@ -164,6 +167,14 @@ public class MyApplication {
         String gender = scanner.next();
 
         String response = controller.createEmployee(name, surname, position, age, gender);
+        System.out.println(response);
+    }
+
+    public void deleteEmployeeMenu(){
+        System.out.println("Please enter id");
+
+        int id = scanner.nextInt();
+        String response = controller.deleteEmployee(id);
         System.out.println(response);
     }
 }

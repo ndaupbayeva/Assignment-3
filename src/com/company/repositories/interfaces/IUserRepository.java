@@ -10,4 +10,6 @@ public interface IUserRepository {
     boolean createEmployee(Employee employee);
     User getUser(int id);
     List<User> getAllUsers();
+    List<Employee> getAllEmployees();
+    Employee deleteEmployee(int id);
 }

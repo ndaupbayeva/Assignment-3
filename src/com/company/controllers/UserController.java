@@ -31,6 +31,12 @@ public class UserController {
         return (created ? "Employee was added!" : "Employee adding was failed!");
     }
 
+    public String deleteEmployee(int id){
+        Employee employee = repo.deleteEmployee(id);
+
+        return (employee == null ? "User was not found!" : "User deleted");
+    }
+
     public String getUser(int id) {
         User user = repo.getUser(id);
 
@@ -43,6 +49,17 @@ public class UserController {
         StringBuilder response = new StringBuilder();
         for (User user : users) {
             response.append(user.toString()).append("\n");
+        }
+
+        return response.toString();
+    }
+
+    public String getAllEmployees(){
+        List<Employee> employees = repo.getAllEmployees();
+
+        StringBuilder response = new StringBuilder();
+        for (Employee employee : employees) {
+            response.append(employee.toString()).append("\n");
         }
 
         return response.toString();

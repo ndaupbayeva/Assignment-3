@@ -79,6 +79,35 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
+    public Employee deleteEmployee(int id){
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+            String sql = "DELETE from employees where ID = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setInt(1, id);
+
+            st.execute();
+
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+
+        return null;
+
+    }
+
+
+    @Override
     public User getUser(int id) {
         Connection con = null;
 
@@ -131,6 +160,43 @@ public class UserRepository implements IUserRepository {
             }
 
             return users;
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+            String sql = "SELECT id,name,surname,position,age,gender FROM employees";
+            Statement st = con.createStatement();
+
+            ResultSet rs = st.executeQuery(sql);
+            List<Employee> employess = new LinkedList<>();
+            while (rs.next()) {
+                Employee employee = new Employee(rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getString("position"),
+                        rs.getInt("age"),
+                        rs.getBoolean("gender"));
+
+                employess.add(employee);
+            }
+
+            return employess;
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
         } finally {
